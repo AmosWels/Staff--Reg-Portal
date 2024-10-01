@@ -1,2 +1,2 @@
-# Staff--Reg-Portal
+## Staff-Reg-Portal
 Portal intended to support the new staff onboarding process
