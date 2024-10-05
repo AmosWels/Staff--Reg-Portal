@@ -1,0 +1,33 @@
+.landing-page {
+  font-family: 'Arial', sans-serif;
+}
+
+header {
+  background-image: url('https://www.example.com/dfcu-bank-header.jpg'); /* Replace with actual URL */
+  background-size: cover;
+  background-position: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  background-color: #343a40;
+}
+
+footer p {
+  margin: 0;
+}
