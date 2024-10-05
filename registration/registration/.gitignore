@@ -1,0 +1,9 @@
+node_modules
+.cache
+dist
+.env
+coverage
+nohup.out
+yarn-error.log
+.vscode/
+.DS_Store
