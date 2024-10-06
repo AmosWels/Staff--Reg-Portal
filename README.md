@@ -96,4 +96,8 @@ This portal is intended to support the new staff onboarding process using Django
     - dfcu2024mn
     - dfcu2024ab
     ```
+### Sample Demo Walkthrough
+
+https://github.com/user-attachments/assets/d3ff8458-482f-4767-8979-c58d933e1373
+
 
