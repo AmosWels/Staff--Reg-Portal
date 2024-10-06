@@ -133,7 +133,8 @@ def api_metrics_view(request):
             status=status.HTTP_404_NOT_FOUND
         )
     
-    allowed_unique_codes = ['dfcu2024ex', 'dfcu2024lx', 'dfcu2024hp']
+    allowed_unique_codes = ['dfcu2024ex', 'dfcu2024lx', 'dfcu2024hp',
+                            'dfcu2024op', 'dfcu2024mn', 'dfcu2024ab']
     if unique_code not in allowed_unique_codes:
         return Response(
             {"error": "Not verified to view metrics"},

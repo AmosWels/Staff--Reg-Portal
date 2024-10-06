@@ -10,6 +10,9 @@ This portal is intended to support the new staff onboarding process using Django
 
 - Python 3.x
 - Node.js and npm
+- Django
+- React JS
+- PostMan
 - Virtualenv (optional but recommended)
 
 ### Backend Setup (Django)
@@ -88,5 +91,9 @@ This portal is intended to support the new staff onboarding process using Django
     ```
     - dfcu2024ex 
     - dfcu2024lx
+    - dfcu2024hp
+    - dfcu2024op
+    - dfcu2024mn
+    - dfcu2024ab
     ```
 
