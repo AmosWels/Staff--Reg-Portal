@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function CreateStaff() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     unique_code: "",
     surname: "",
@@ -23,17 +25,19 @@ function CreateStaff() {
       .post("http://localhost:8000/api/staff/register/", formData)
       .then((response) => {
         alert("Staff Registered Successfully");
-        console.log(response.data);
+        navigate("/");
       })
       .catch((error) => {
         alert("Error Registering Staff");
-        console.error(error);
       });
   };
 
   return (
     <div className="container">
       <h2 className="my-4">Register New Staff</h2>
+      <button className="btn btn-primary" onClick={() => navigate("/")}>
+        Back Home
+      </button><br></br><br></br>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Unique Code</label>

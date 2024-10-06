@@ -5,6 +5,7 @@ import CreateStaff from "./components/CreateStaff";
 import RetrieveSingleStaff from "./components/RetrieveSingleStaff";
 import RetrieveAllStaff from "./components/RetrieveAllStaff";
 import UpdateStaff from "./components/UpdateStaff";
+import Metrics from "./components/Metrics";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/retrieve/single" element={<RetrieveSingleStaff />} />
           <Route path="/retrieve/all" element={<RetrieveAllStaff />} />
           <Route path="/update" element={<UpdateStaff />} />
+          <Route path="/metrics" element={<Metrics />} />
         </Routes>
       </div>
     </Router>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
+import logo from "../assets/dfcu_logo.jpg";
 
 function LandingPage() {
   return (
@@ -12,6 +13,12 @@ function LandingPage() {
         </p>
       </header>
 
+      <div className="container my-5">
+        <div className="logo-container">
+          <img src={logo} alt="DFCU Bank Logo" className="logo_home" />
+        </div>
+      </div>
+      <br></br>
       <div className="container my-5">
         <div className="row">
           <div className="col-md-6 mb-4">
@@ -65,6 +72,19 @@ function LandingPage() {
                 </p>
                 <Link to="/update" className="btn btn-primary">
                   Update Staff
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 mb-4">
+            <div className="card">
+              <div className="card-body text-center">
+                <h5 className="card-title">View API Performance</h5>
+                <p className="card-text">
+                  Number of requests, successful and failed requests.
+                </p>
+                <Link to="/metrics" className="btn btn-primary">
+                  View API Metrics
                 </Link>
               </div>
             </div>

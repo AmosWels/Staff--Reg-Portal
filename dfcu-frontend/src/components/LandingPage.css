@@ -2,10 +2,31 @@
   font-family: 'Arial', sans-serif;
 }
 
-header {
-  background-image: url('https://www.example.com/dfcu-bank-header.jpg'); /* Replace with actual URL */
+
+.container {
+  position: relative; /* Ensure the container has a position context */
+  width: 100%; /* Adjust as needed */
+  height: 100%; /* Adjust as needed */
+}
+
+.logo-container {
+  position: absolute;
+  top: 10px; /* Adjust to your desired position from the top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust to center the element */
+  z-index: 30; /* Ensure it is above other elements */
+}
+
+.logo_home {
+  width: 150px;  /* Adjust the size of the logo */
+  height: auto;  /* Maintain aspect ratio */
+}
+
+.bg-primary-image {
+  background-image: url('https://www.dfcugroup.com/wp-content/themes/dfcu-bank/images/dfcu-60years.svg'); /* Replace with actual URL or remove */
   background-size: cover;
   background-position: center;
+  position: relative;
 }
 
 header h1 {
@@ -24,8 +45,15 @@ header p {
   transform: scale(1.05);
 }
 
+.main-content {
+  flex: 1;
+}
+
 footer {
+  position: relative;
   background-color: #343a40;
+  margin-top: auto;
+  padding: 10px;
 }
 
 footer p {
