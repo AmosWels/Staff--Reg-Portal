@@ -10,3 +10,27 @@ class Staff(models.Model):
 
     def __str__(self):
         return self.surname
+
+
+class APIMetrics(models.Model):
+    total_requests = models.PositiveIntegerField(default=0)
+    successful_requests = models.PositiveIntegerField(default=0)
+    failed_requests = models.PositiveIntegerField(default=0)
+
+    @classmethod
+    def increment_total_requests(cls):
+        metrics, created = cls.objects.get_or_create(id=1)
+        metrics.total_requests += 1
+        metrics.save()
+
+    @classmethod
+    def increment_successful_requests(cls):
+        metrics, created = cls.objects.get_or_create(id=1)
+        metrics.successful_requests += 1
+        metrics.save()
+
+    @classmethod
+    def increment_failed_requests(cls):
+        metrics, created = cls.objects.get_or_create(id=1)
+        metrics.failed_requests += 1
+        metrics.save()

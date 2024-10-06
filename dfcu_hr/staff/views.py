@@ -1,9 +1,12 @@
-from django.shortcuts import get_object_or_404
+from rest_framework.decorators import api_view
 from rest_framework import status, generics
 from rest_framework.response import Response
 from django.db.models import Q
 from .serializers import StaffSerializer
-from .models import Staff
+from .models import (
+    Staff,
+    APIMetrics
+)
 from .utils import BaseAPI
 
 class StaffRegistrationAPI(BaseAPI, generics.CreateAPIView):
@@ -32,8 +35,9 @@ class StaffRetrievalAPI(BaseAPI, generics.ListAPIView):
     serializer_class = StaffSerializer
     queryset = Staff.objects.all()
 
-    def get(self, request, *args, **kwargs):
-        if 'unique_code' not in request.data:
+    def post(self, request, *args, **kwargs):
+        unique_code = request.data.get('unique_code', None)
+        if not unique_code:
             return Response(
                 {"error": "Missing unique code in request"},
                 status=status.HTTP_400_BAD_REQUEST)
@@ -44,8 +48,14 @@ class StaffRetrievalAPI(BaseAPI, generics.ListAPIView):
         
         employee_number = request.data.get('employee_number', None)
         if employee_number:
-            staff = get_object_or_404(Staff, employee_number=employee_number)
-            serializer = self.get_serializer(staff)
+            staff = Staff.objects.filter(employee_number=employee_number,
+                        unique_code=unique_code)
+            if not staff.exists():
+                return Response(
+                    {"error": f"Staff with employee number '{employee_number}' "
+                              f" and unique code '{unique_code}' not found"},
+                    status=status.HTTP_404_NOT_FOUND)
+            serializer = self.get_serializer(staff.last())
             return Response(serializer.data, status=status.HTTP_200_OK)
         return super().get(request, *args, **kwargs)
 
@@ -103,3 +113,48 @@ class StaffUpdateAPI(BaseAPI, generics.UpdateAPIView):
             employee_number=employee_number, unique_code=unique_code)
         return Response(
             self.get_serializer(staff).data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def api_metrics_view(request):
+    unique_code = request.data.get('unique_code')
+    
+    if not unique_code:
+        return Response(
+            {"error": "unique code is required"},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    
+    try:
+        staff = Staff.objects.get(unique_code=unique_code)
+    except Staff.DoesNotExist:
+        return Response(
+            {"error": "Staff with the provided unique code does not exist"},
+            status=status.HTTP_404_NOT_FOUND
+        )
+    
+    allowed_unique_codes = ['dfcu2024ex', 'dfcu2024lx', 'dfcu2024hp']
+    if unique_code not in allowed_unique_codes:
+        return Response(
+            {"error": "Not verified to view metrics"},
+            status=status.HTTP_403_FORBIDDEN
+        )
+    
+    metrics = APIMetrics.objects.first()
+    if metrics:
+        total_value = 0
+        total = int(metrics.successful_requests) + int(metrics.failed_requests)
+
+        if total == int(metrics.total_requests):
+            total_value = int(metrics.total_requests)
+        else:
+            total_value = total
+        data = {
+            'total_requests': total_value,
+            'successful_requests': metrics.successful_requests,
+            'failed_requests': metrics.failed_requests,
+        }
+        return Response(data, status=status.HTTP_200_OK)
+    else:
+        return Response(
+            {"error": "Metrics not found"}, status=status.HTTP_404_NOT_FOUND)
