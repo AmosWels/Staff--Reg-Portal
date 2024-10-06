@@ -16,12 +16,13 @@ This portal is intended to support the new staff onboarding process using Django
 
 1. **Clone the repository:**
     ```sh
-    git clone https://github.com/yourusername/Staff-Registration-Portal.git
+    git clone git@github.com:AmosWels/Staff-Registration-Portal.git
     cd Staff-Registration-Portal
     ```
 
 2. **Create and activate a virtual environment (optional but recommended):**
     ```sh
+    cd dfcu_hr
     python3 -m venv venv
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
@@ -51,7 +52,7 @@ This portal is intended to support the new staff onboarding process using Django
 
 1. **Navigate to the frontend directory:**
     ```sh
-    cd frontend
+    cd dfcu-frontend
     ```
 
 2. **Install frontend dependencies:**
@@ -66,8 +67,9 @@ This portal is intended to support the new staff onboarding process using Django
 
 ### Running the Project
 
-- **Backend:** The Django server will be running at `http://127.0.0.1:8000/`
-- **Frontend:** The React development server will be running at `http://localhost:3000/` or `http://localhost:3001/`. I used `http://localhost:3000/`
+- **Backend:** The Backend server will be running at **`http://127.0.0.1:8000/`**
+- **Frontend:** The React development server will be running at **`http://localhost:3000/`** or **`http://localhost:3001/`** depending on the available port. 
+
 
 ### Building the Frontend for Production
 
