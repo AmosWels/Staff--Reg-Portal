@@ -75,15 +75,9 @@ This portal is intended to support the new staff onboarding process using Django
 - **Backend:** The Backend server will be running at **`http://127.0.0.1:8000/`**
 - **Frontend:** The React development server will be running at **`http://localhost:3000/`** or **`http://localhost:3001/`** depending on the available port. 
 
-### Building the Frontend for Production
 
-1. **Build the React app:**
-    ```sh
-    npm run build
-    ```
-
-### Deployment Guide
-
+### Deployment Guide for Production
+- This guide assumes deployment on Windows IIS. However, the steps may vary depending on the service used to provision the production application.
 
 #### Backend Deployment (Django) on Windows IIS
 
