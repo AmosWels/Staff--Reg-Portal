@@ -8,7 +8,7 @@ This portal is intended to support the new staff onboarding process using Django
 
 ### Prerequisites
 
-- Python 3.11 # **strictly 3.11** otherwise you made get dependecies conflicts
+- Python 3.11 # **strictly 3.11** otherwise you may encounter dependency conflicts
 - Node.js and npm
 - Django
 - React JS
