@@ -1,0 +1,38 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media
+
+# Django environment variables
+.env
+
+# Django migrations
+*/migrations/*
+
+# Django static files
+staticfiles/
+
+# Virtual environments
+venv/
+venv1/
+
+# Node modules
+node_modules/
+
+# Build directories
+build/
+dist/
+
+# React
+dfcu-frontend/node_modules/
+dfcu-frontend/build/
+dfcu-frontend/dist/
+
+# IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
