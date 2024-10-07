@@ -8,12 +8,12 @@ This portal is intended to support the new staff onboarding process using Django
 
 ### Prerequisites
 
-- Python 3.x
+- Python 3.11 # **strictly 3.11** otherwise you made get dependecies conflicts
 - Node.js and npm
 - Django
 - React JS
 - Postman
-- Virtualenv (optional but recommended)
+- Virtualenv (optional but recommended) # Good to have for environment consistency. Create with python3.11
 - Windows Server with IIS installed
 
 ### Backend Setup (Django)
@@ -27,8 +27,9 @@ This portal is intended to support the new staff onboarding process using Django
 2. **Create and activate a virtual environment (optional but recommended):**
     ```sh
     cd dfcu_hr
-    virtualenv venv then source venv/bin/activate
-    # On Windows use python3 -m venv venv venv\Scripts\activate `venv\Scripts\activate`
+    python3.11 -m venv venv
+    venv\Scripts\activate  # On Windows use `venv\Scripts\activate`
+    source venv/bin/activate
     ```
 
 3. **Install backend dependencies:**
@@ -179,6 +180,15 @@ This portal is intended to support the new staff onboarding process using Django
     - dfcu2024mn
     - dfcu2024ab
     ```
+-  **Get a sample Base64-encoded string image string.**
+[https://yulvil.github.io/gopherjs/02/](https://yulvil.github.io/gopherjs/02/)
+
+Or copy and use this Base64-encoded string below
+```
+iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAADMElEQVR4nOzVwQnAIBQFQYXff81RUkQCOyDj1YOPnbXWPmeTRef+/3O/OyBjzh3CD95BfqICMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMO0TAAD//2Anhf4QtqobAAAAAElFTkSuQmCC
+
+```
+
 ### Sample Demo
 
 https://github.com/user-attachments/assets/ba4815f0-e18a-467d-bd43-f1da2687672b

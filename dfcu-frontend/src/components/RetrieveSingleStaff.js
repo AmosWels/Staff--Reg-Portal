@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import axios from "axios";
 
 const RetrieveSingleStaff = () => {
@@ -40,11 +41,14 @@ const RetrieveSingleStaff = () => {
   };
 
   const isValidBase64 = (str) => {
-    try {
-      return btoa(atob(str)) === str;
-    } catch (err) {
-      return false;
-    }
+    const base64Regex =
+      /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
+    return base64Regex.test(str);
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(`data:image/png;base64,${staff.id_photo}`);
+    alert("Image URL copied to clipboard!");
   };
 
   return (
@@ -98,17 +102,25 @@ const RetrieveSingleStaff = () => {
             </p>
             <p className="card-text">
               <strong>ID Photo:</strong>{" "}
-              {isValidBase64(staff.id_photo) ? (
-                <img
-                  src={`data:image/jpeg;base64,${staff.id_photo}`}
-                  alt="ID Photo"
-                />
+              {staff.id_photo && isValidBase64(staff.id_photo) ? (
+                <>
+                  <img
+                    src={`data:image/jpeg;base64,${staff.id_photo}`}
+                    alt="ID Photo"
+                  />
+                  <br></br><br></br>
+                  <button
+                    onClick={copyToClipboard}
+                    className="copy-button btn btn-primary"
+                  >
+                    <i className="fas fa-copy"></i> Copy ID Photo URL
+                  </button>
+                </>
               ) : (
                 <p>{staff.id_photo}</p>
               )}
               <br></br>
             </p>
-            <p className="card-text"> ID :{staff.id_photo}</p>
           </div>
         </div>
       )}
