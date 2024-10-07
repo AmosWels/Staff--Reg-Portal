@@ -29,6 +29,8 @@ This portal is intended to support the new staff onboarding process using Django
     cd dfcu_hr
     python3.11 -m venv venv
     venv\Scripts\activate  # On Windows use `venv\Scripts\activate`
+    virtualenv venv  source venv/bin/activate
+    # On Windows use python3 -m venv venv venv\Scripts\activate `venv\Scripts\activate`
     ```
 
 3. **Install backend dependencies:**
