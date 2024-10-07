@@ -1,0 +1,1 @@
+web: gunicorn dfcu_hr.wsgi --log-file -
